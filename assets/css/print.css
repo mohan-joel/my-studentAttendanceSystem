@@ -1,0 +1,16 @@
+*{
+	size:A4;
+	margin: auto;
+	
+}
+#print_btn{
+	display: none;
+	visibility: none;
+}
+
+tr,th{
+	text-align: left;
+}
+table{
+	width: 100%;
+}
