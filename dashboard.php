@@ -1,10 +1,6 @@
 <?php 
-	session_start();
-	// include database connection file
-	include_once('config.php');
-	if(!isset($_SESSION['ID'])){
-		header("location: login.php");
-	}
+include_once('config.php');
+include('functions.php');
 ?>
 
 <!DOCTYPE html>

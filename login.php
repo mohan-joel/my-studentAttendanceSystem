@@ -1,9 +1,5 @@
 <?php
-  session_start();
-  if (isset($_SESSION['ID'])) {
-      header("Location:dashboard.php");
-      exit();
-  }
+  
   // Include database connectivity
     
   include_once('config.php');
@@ -13,29 +9,21 @@
       $email = $con->real_escape_string($_POST['email']);
       $role = $con->real_escape_string($_POST['role']);
       $password = $con->real_escape_string($_POST['password']);
-
-      echo $email .",". $password ." and ".$role;
       
-  if (!empty($email) || !empty($password) || !empty($role)) {
-        $query  = "SELECT * FROM users WHERE email = '$email' and role ='$role' and password = '$password'";
-        $result = $con->query($query);
-        if($result->num_rows > 0){
-            $row = $result->fetch_assoc();
-            $_SESSION['ID'] = $row['id'];
-            $_SESSION['ROLE'] = $row['role'];
-            $_SESSION['NAME'] = $row['name'];
-            $_SESSION['EMAIL'] = $row['email'];
-            $_SESSION['ADDRESS'] = $row['address'];
-            $_SESSION['contact'] = $row['contact'];
-            $_SESSION['PHOTO'] = $row['photo'];
-            header("Location:dashboard.php");
-            die();                              
-        }else{
-          $errorMsg = "No user found on this username";
-        } 
-    }else{
-      $errorMsg = "Username and Password is required";
-    }
+      $query = "select * from users where email='$email' and role='$role' and password='$password'";
+      $result = mysqli_query($con,$query);
+      $num_rows = mysqli_num_rows($result);
+      if($num_rows > 0){
+        $row = mysqli_fetch_assoc($result);
+        $_SESSION['id'] = $row['id'];
+        $_SESSION['ROLE']=$row['role'];
+        $_SESSION['NAME'] = $row['name'];
+        $_SESSION['EMAIL'] = $row['email'];
+        $_SESSION['ADDRESS'] = $row['address'];
+        $_SESSION['contact'] = $row['contact'];
+        $_SESSION['PHOTO'] = $row['photo'];
+        header("location:dashboard.php");
+      }
   }
 ?>
 
