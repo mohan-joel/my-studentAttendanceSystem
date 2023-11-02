@@ -1,6 +1,8 @@
 <?php 
-include_once('config.php');
+include('config.php');
 include('functions.php');
+
+
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +42,7 @@ include('functions.php');
               <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white me-2">
                   <i class="mdi mdi-home"></i>
-                </span> Dashboard
+                </span> Dashboard  <?php echo $_SESSION['ROLE']; ?>
               </h3>
               <nav aria-label="breadcrumb">
                 <ul class="breadcrumb">
