@@ -16,7 +16,7 @@
 
       echo $email .",". $password ." and ".$role;
       
-  if (!empty($username) || !empty($password)) {
+  if (!empty($email) || !empty($password) || !empty($role)) {
         $query  = "SELECT * FROM users WHERE email = '$email' and role ='$role' and password = '$password'";
         $result = $con->query($query);
         if($result->num_rows > 0){
