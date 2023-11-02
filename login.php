@@ -12,7 +12,9 @@
       $errorMsg = "";
       $email = $con->real_escape_string($_POST['email']);
       $role = $con->real_escape_string($_POST['role']);
-      $password = $con->real_escape_string(md5($_POST['password']));
+      $password = $con->real_escape_string($_POST['password']);
+
+      echo $email .",". $password ." and ".$role;
       
   if (!empty($username) || !empty($password)) {
         $query  = "SELECT * FROM users WHERE email = '$email' and role ='$role' and password = '$password'";

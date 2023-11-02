@@ -17,7 +17,7 @@
     $email = $con->real_escape_string($_POST['email']);
     $address     = $con->real_escape_string($_POST['address']);
     $contact     = $con->real_escape_string($_POST['contact']);
-    $password = $con->real_escape_string(md5($_POST['password']));
+    $password = $con->real_escape_string($_POST['password']);
     $role     = $con->real_escape_string($_POST['role']);
     $photo     = $con->real_escape_string($_FILES['photo']['name']);
     $filename = $_FILES['photo']['name'];
