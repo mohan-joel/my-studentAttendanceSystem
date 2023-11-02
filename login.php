@@ -14,16 +14,16 @@
       $query = "select * from users where email='$email' and role='$role' and password='$password'";
       $result = mysqli_query($con,$query);
       $num_rows = mysqli_num_rows($result);
+      $row = mysqli_fetch_assoc($result);
       if($num_rows > 0){
-        $row = mysqli_fetch_assoc($result);
-        $_SESSION['id'] = $row['id'];
         $_SESSION['ROLE']=$row['role'];
         $_SESSION['NAME'] = $row['name'];
         $_SESSION['EMAIL'] = $row['email'];
         $_SESSION['ADDRESS'] = $row['address'];
         $_SESSION['contact'] = $row['contact'];
         $_SESSION['PHOTO'] = $row['photo'];
-        header("location:dashboard.php");
+        header("location: dashboard.php");
+        
       }
   }
 ?>
