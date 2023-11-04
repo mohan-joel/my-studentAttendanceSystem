@@ -27,6 +27,7 @@
 		}
 		
 	</style>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="assets/css/print.css" media="print">
 </head>
 <body>
@@ -99,7 +100,10 @@
 	<?php  } ?>
 </table>
 
-<button type="submit" onclick="window.print()" id="print_btn">Print</button>
+<div class="container">
+<button type="submit" onclick="window.print()" class="btn btn-sm btn-warning" id="print_btn">Print</button>
+<a href="take-student-attendance.php" class="btn btn-sm btn-success" id="print_btn">Go Back</a>
+</div>
 </div>
 </body>
 </html>

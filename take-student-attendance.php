@@ -94,7 +94,7 @@
                           <th>Roll No</th>
                           <th> Photo </th>
                           <th> Student's Name </th>
-                          <th> Attendance (Tick for all present) <input type="checkbox" id="select-all"> </th>
+                          <th> <br> All Present<input type="checkbox" id="Pselect-all">All Absent<input type="checkbox" id="Aselect-all"> </th>
                           
                         </tr>
                       </thead>
@@ -108,7 +108,7 @@
                               $section = $_POST['section'][$i];
                               $class_teacher = $_POST['class_teacher'][$i];
                               $student_name = $_POST['student_name'][$i];
-                              $status = isset($_POST['status'][$i]) ? "Present" : "Absent";
+                              $status = $_POST['status'][$i];
                               
                               $attendanceQuery = "insert into student_attendance (dates,class,section,class_teacher,student_name,status) values ('$date','$class','$section','$class_teacher','$student_name','$status')";
                               $attendanceResult = mysqli_query($con,$attendanceQuery);
@@ -151,10 +151,12 @@
                           </div>
                           <td>
                             <div class="form-group">
-                              <input type="checkbox" class="form-check-input checkbox" name="status[]" id="attendance" value="Present"><label class="form-check-label" for="flexCheckDefault">
+                              <input type="checkbox" class="form-check-input Pcheckbox" name="status[]" id="attendance" value="Present"><label class="form-check-label" for="flexCheckDefault">
                                       Present
                                     </label>
-                                   
+                                    <input type="checkbox" class="form-check-input Acheckbox" name="status[]" id="attendance" value="Absent"><label class="form-check-label" for="flexCheckDefault">
+                                      Absent
+                                    </label>
                             </div>
                           </td>
                         </tr>
@@ -207,16 +209,31 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
       $(document).ready(function(){
-          $("#select-all").click(function(){
-              $(".checkbox").prop("checked",$(this).prop('checked'));
+          $("#Pselect-all").click(function(){
+              $(".Pcheckbox").prop("checked",$(this).prop('checked'));
           });
 
 
-          $(".checkbox").click(function(){
-              if($(".checkbox:checked").length == $(".checkbox").length){
-                $("#select-all").prop('checked',true);
+          $(".Pcheckbox").click(function(){
+              if($(".Pcheckbox:checked").length == $(".Pcheckbox").length){
+                $("#Pselect-all").prop('checked',true);
               }else{
-                $("#select-all").prop('checked',false);
+                $("#Pselect-all").prop('checked',false);
+              }
+          });
+
+
+
+          $("#Aselect-all").click(function(){
+              $(".Acheckbox").prop("checked",$(this).prop('checked'));
+          });
+
+
+          $(".Acheckbox").click(function(){
+              if($(".Acheckbox:checked").length == $(".Acheckbox").length){
+                $("#Aselect-all").prop('checked',true);
+              }else{
+                $("#Aselect-all").prop('checked',false);
               }
           });
       });
