@@ -127,7 +127,16 @@
               <div class="collapse" id="ui-basic5">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="take-student-attendance.php">Take Attendance</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="attendance-report.php">Attendance Report</a></li>
+                  <?php 
+                      $teacher_name = $_SESSION['NAME'];
+                      $query = "select class,section from student_attendance where class_teacher='$teacher_name'";
+                      $result = mysqli_query($con,$query);
+                      $row = mysqli_fetch_assoc($result);
+                      $class = $row['class'];
+                      $section = $row['section'];
+                  
+                  ?>
+                  <li class="nav-item"> <a class="nav-link" href="show-attendance.php?class=<?=$class;?>&section=<?=$section;?>">Attendance Report</a></li>
                 </ul>
               </div>
             </li>

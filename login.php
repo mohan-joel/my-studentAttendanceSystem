@@ -23,6 +23,7 @@
         $_SESSION['ADDRESS'] = $row['address'];
         $_SESSION['contact'] = $row['contact'];
         $_SESSION['PHOTO'] = $row['photo'];
+        $_SESSION['SCHOOL'] = $row['school'];
         header("location: dashboard.php");
         
       }

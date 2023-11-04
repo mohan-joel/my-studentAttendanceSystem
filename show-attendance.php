@@ -1,9 +1,15 @@
 <?php 
+    session_start();
 	include('config.php');
+	if(!isset($_SESSION['ID'])){
+		header("location: login.php");
+	}
 	$query = "select * from student_attendance";
 	$result = mysqli_query($con,$query);
 	$num = mysqli_num_rows($result);
-	$std_query = "select name from students where class='1' and section='A'";
+    $class=$_GET['class'];
+    $section=$_GET['section'];
+	$std_query = "select name from students where class='$class' and section='$section'";
 	$std_res = mysqli_query($con,$std_query);
 ?>
 
@@ -25,12 +31,12 @@
 </head>
 <body>
 <div class="container">
-	<h1 style="text-align: center;">Attendance Record</h1>
+	<h1 style="text-align: center;"><?php echo $_SESSION['SCHOOL']; ?></h1>
 	<table border="1" style="border-collapse: collapse;">
 	<tr>
 		<th>Student Name</th>
-		<b>Class:</b>1<br>
-		<b>Section:</b>A
+		<b>Class:</b><?=$class;?><br>
+		<b>Section:</b><?=$section;?>
 		<?php 
 			$query_date ="select distinct dates from student_attendance";
 			$result_date = mysqli_query($con,$query_date);
@@ -50,7 +56,7 @@
 	</tr>
 
 <?php 
-	$query_name = "select name from students where class='1' and section='A'";
+	$query_name = "select name from students where class='$class' and section='$section'";
 	$result_name=mysqli_query($con,$query_name);
 	while($row_n = mysqli_fetch_assoc($result_name)){
 		$name = $row_n['name'];

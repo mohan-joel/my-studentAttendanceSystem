@@ -137,7 +137,7 @@
                           $date = date("Y-m-d");
                         ?>
 
-                        <input type="hidden" style="border:none;" name="date[]" id="date" value="<?=$date;?>">
+                        <input type="hidden" style="border:none;" name="date[]" id="date" value="<?=$date;?>" >
                         <input type="hidden" name="class[]" id="class" value="<?=$class;?>">
                         <input type="hidden" name="section[]" id="section" value="<?=$section;?>">
                         <input type="hidden" name="class_teacher[]" id="class_teacher" value="<?=$teacher_name;?>" >

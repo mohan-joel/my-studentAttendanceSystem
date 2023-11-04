@@ -91,7 +91,7 @@
                           <td> <?=$i++;?> </td>
                           <td><?=$class['class_name'];?></td>
                           <td><?=$class['section_name'];?></td>
-                          <td><a class="btn btn-sm btn-success"  href="edit-classes.php?id=<?=$class['id'];?>">Update</a><a class="btn btn-sm btn-danger" href="delete-class.php?id=<?=$class['id'];?>">Delete</a></td>
+                          <td><a class="btn btn-sm btn-success"  href="edit-classes.php?id=<?=$class['id'];?>">Update</a><a class="btn btn-sm btn-danger" href="delete-class.php?id=<?=$class['id'];?>">Delete</a><a href="show-attendance.php?class=<?=$class['class_name'];?>&section=<?=$class['section_name'];?>" class="btn btn-sm btn-warning">Show Attendance</a></td>
                         </tr>
                        <?php } ?>
                       </tbody>

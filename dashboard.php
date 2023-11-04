@@ -264,10 +264,10 @@ if(!isset($_SESSION['ID'])){
                     <hr style="color: black;width: 50px solid;">
                     <?php
                     $date = date('Y-m-d');
-                      $totalPresentQuery = "select student_name from student_attendance where dates='$date' and status = 1";
+                      $totalPresentQuery = "select student_name from student_attendance where dates='$date' and status = 'Present'";
                       $resTotalPresent = mysqli_query($con,$totalPresentQuery);
                       $numTotalPresent = mysqli_num_rows($resTotalPresent);
-                      $totalAbsentQuery = "select student_name from student_attendance where dates='$date' and  status = 0";
+                      $totalAbsentQuery = "select student_name from student_attendance where dates='$date' and  status = 'Absent'";
                       $resTotalAbsent = mysqli_query($con,$totalAbsentQuery);
                       $numTotalAbsent = mysqli_num_rows($resTotalAbsent);
                       $totalAttendQ = "select name from students";
