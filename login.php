@@ -16,6 +16,7 @@
       $num_rows = mysqli_num_rows($result);
       $row = mysqli_fetch_assoc($result);
       if($num_rows > 0){
+        $_SESSION['ID'] = $row['id'];
         $_SESSION['ROLE']=$row['role'];
         $_SESSION['NAME'] = $row['name'];
         $_SESSION['EMAIL'] = $row['email'];

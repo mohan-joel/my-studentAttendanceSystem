@@ -9,6 +9,7 @@
       if (isset($_POST['add'])) {
 
         $name     = $con->real_escape_string($_POST['name']);
+        $gender = $con->real_escape_string($_POST['gender']);
         $email = $con->real_escape_string($_POST['email']);
         $address     = $con->real_escape_string($_POST['address']);
         $contact     = $con->real_escape_string($_POST['contact']);
@@ -19,7 +20,7 @@
         $tempname = $_FILES['photo']['tmp_name'];
         $folder = "uploads/images/".$filename;
         move_uploaded_file($tempname, $folder);
-        $query  = "INSERT INTO users (name,email,address,contact,password,role,photo) VALUES ('$name','$email','$address','$contact','$password','$role','$photo')";
+        $query  = "INSERT INTO users (name,email,gender,address,contact,password,role,photo) VALUES ('$name','$gender','$email','$address','$contact','$password','$role','$photo')";
         $result = $con->query($query);
         if ($result==true) {
           redirect("add-teachers.php","New Teacher Added Successfully!!!");
@@ -98,6 +99,14 @@
                         <div class="form-group">
                           <label for="exampleInputUsername1">Name</label>
                           <input type="text" class="form-control" id="exampleInputUsername1" name="name" placeholder="Teacher's Name">
+                        </div>
+                        <div class="form-group">
+                          <label for="gender">Gender</label>
+                          <select name="gender" id="" class="form-control">
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                          </select>
                         </div>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Email address</label>

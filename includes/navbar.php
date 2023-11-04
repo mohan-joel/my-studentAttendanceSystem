@@ -11,7 +11,7 @@
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                 <div class="nav-profile-img">
-                  <img src="http://localhost/student_attendance/uploads/images/<?=$_SESSION['PHOTO']?>" alt="image">
+                  <img src="http://localhost/php_project/my-studentAttendanceSystem/uploads/images/<?=$_SESSION['PHOTO']?>" alt="image">
                   <span class="availability-status online"></span>
                 </div>
                 <div class="nav-profile-text">

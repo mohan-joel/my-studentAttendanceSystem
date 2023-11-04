@@ -2,7 +2,9 @@
 include('config.php');
 include('functions.php');
 
-
+if(!isset($_SESSION['ID'])){
+  header("location: login.php");
+}
 ?>
 
 <!DOCTYPE html>

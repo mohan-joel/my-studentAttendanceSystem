@@ -90,7 +90,7 @@
                       <?php } ?>
                       <h4 class="card-title">Teachers List</h4>
                       <a class="btn btn-primary btn-sm float-end" href="teachersAllDetails.php"> All Details </a>
-                      <a class="btn btn-dark btn-sm float-end" href="teachersAllDetails.php">Add Teachers</a>
+                      <a class="btn btn-dark btn-sm float-end" href="add-teachers.php">Add Teachers</a>
                     <table class="table table-bordered">
                       <thead>
                         <tr>
